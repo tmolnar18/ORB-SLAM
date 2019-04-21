@@ -62,13 +62,12 @@ ENV LANG C.UTF-8
 ENV LC_ALL C.UTF-8
 
 # bootstrap rosdep
-RUN rosdep init \
+RUN cd \
+    && rosdep init \
     && rosdep update
 
 # install ros packages
 ENV ROS_DISTRO kinetic
-WORKDIR /Installations
-RUN cd /Installations
 RUN apt-get update && apt-get install -y \
     ros-kinetic-ros-core=1.3.2-0* \
     ros-kinetic-tf \
@@ -76,15 +75,15 @@ RUN apt-get update && apt-get install -y \
     ros-kinetic-cv-bridge \
     && rm -rf /var/lib/apt/lists/*
 
-RUN echo "source /Installations/ros/kinetic/setup.bash" >> ~/.bashrc
+RUN echo "source /opt/ros/kinetic/setup.bash" >> ~/.bashrc
 
 # Install ORB-SLAM2
-WORKDIR /ORB-SLAM
-RUN cd /ORB-SLAM \
-    && git clone https://github.com/tmolnar18/ORB-SLAM.git ORB_SLAM2 \
-    && cd ORB_SLAM2 && chmod +x build.sh && chmod +x build_ros.sh
+WORKDIR /opt
+RUN cd /opt \
+    && git clone https://github.com/tmolnar18/ORB-SLAM.git ORB_SLAM \
+    && cd ORB_SLAM && chmod +x build.sh && chmod +x build_ros.sh
 
-RUN echo "export ROS_PACKAGE_PATH="${ROS_PACKAGE_PATH}":/opt/ORB_SLAM2/Examples/ROS" >> ~/.bashrc
+#RUN echo "export ROS_PACKAGE_PATH=${ROS_PACKAGE_PATH}:/opt/ORB_SLAM/Examples/ROS" >> ~/.bashrc
 #RUN echo "source ~/.bashrc" >> ~/.bashrc
 RUN apt-get update
 
@@ -118,12 +117,14 @@ RUN apt-get install -y \
     tar \
     timidity \
     zlib1g-dev \
-    libeigen3-dev
+    libeigen3-dev \
+    python-pil \
+    python3-pil
 
 # Install Pangolin
 RUN apt-get install -y libglew-dev
-RUN cd /Installations \
-    git clone https://github.com/stevenlovegrove/Pangolin.git \
+RUN cd \
+    && git clone https://github.com/stevenlovegrove/Pangolin.git \
     && cd Pangolin \
     && mkdir build \
     && cd build \
@@ -136,7 +137,7 @@ RUN apt-get install -y cmake git libgtk2.0-dev pkg-config libavcodec-dev \
     libjpeg-dev libpng-dev libtiff-dev libjasper-dev libdc1394-22-dev unzip
 
 # Get and build OpenCV 2.4.11
-RUN cd /Installations \
+RUN cd \
     && wget https://github.com/opencv/opencv/archive/2.4.11.zip \
     && unzip 2.4.11.zip \
     && cd opencv-2.4.11 \
@@ -154,6 +155,6 @@ RUN pip install pip --upgrade
 RUN apt-get update
 
 # Install Vizdoom
-RUN cd /Installations \
+RUN cd \
     && git clone https://github.com/mwydmuch/ViZDoom vizdoom
 RUN pip install vizdoom
