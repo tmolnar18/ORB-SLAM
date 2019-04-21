@@ -1,5 +1,6 @@
 Add line below to ~/.bashrc file, then source the file.
-```export ROS_PACKAGE_PATH=${ROS_PACKAGE_PATH}:/opt/ORB_SLAM/Examples/ROS
+```
+   export ROS_PACKAGE_PATH=${ROS_PACKAGE_PATH}:/opt/ORB_SLAM/Examples/ROS
    source ~/.bashrc
 
 ```
