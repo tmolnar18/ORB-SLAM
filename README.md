@@ -44,6 +44,8 @@ Point cloud viewer window is disabled by default. To generate point cloud, run f
      python main.py
 ```
 
+See the corresponding Docker repo here (https://cloud.docker.com/repository/docker/tmolnar18/vizdoom-orbslam) for additional information on deploying and using the image.
+
 
 
 # ORB-SLAM2
