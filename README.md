@@ -5,6 +5,15 @@ Add line below to ~/.bashrc file, then source the file.
 
 ```
 
+Point cloud viewer window is disabled by default. To generate point cloud, run from /opt/ORB_SLAM folder:
+```
+     roscore
+
+     rosrun ORB_SLAM2 RGBD Vocabulary/ORBvoc.txt vizdoom/settings.yaml
+
+     python main.py
+```
+
 
 
 # ORB-SLAM2
