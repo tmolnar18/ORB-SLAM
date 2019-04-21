@@ -82,7 +82,7 @@ RUN echo "source /Installations/ros/kinetic/setup.bash" >> ~/.bashrc
 # Install ORB-SLAM2
 WORKDIR /ORB-SLAM
 RUN cd /ORB-SLAM \
-    && git clone https://github.com/yuyou/ORB_SLAM2.git ORB_SLAM2 \
+    && git clone https://github.com/tmolnar18/ORB-SLAM.git ORB_SLAM2 \
     && cd ORB_SLAM2 && chmod +x build.sh && chmod +x build_ros.sh
 
 RUN echo "export ROS_PACKAGE_PATH="${ROS_PACKAGE_PATH}":/opt/ORB_SLAM2/Examples/ROS" >> ~/.bashrc
