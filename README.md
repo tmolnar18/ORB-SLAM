@@ -1,8 +1,14 @@
-Add line below to ~/.bashrc file, then source the file.
+Add line below to ~/.bashrc file, then source the file. 
 ```
    export ROS_PACKAGE_PATH=${ROS_PACKAGE_PATH}:/opt/ORB_SLAM/Examples/ROS
    source ~/.bashrc
 
+```
+
+Navigate to /opt/ORB_SLAM and execute build.sh and ros_build.sh:
+```
+    ./build.sh
+    ./build_ros.sh
 ```
 
 Point cloud viewer window is disabled by default. To generate point cloud, run from /opt/ORB_SLAM folder:
