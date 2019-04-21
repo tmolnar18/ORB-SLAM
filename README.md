@@ -56,10 +56,10 @@ if you use ORB-SLAM2 (Stereo or RGB-D) in an academic work, please cite:
 
 To build the dockerfile and create an image:
 ```
-   docker build -t "orbslam-build:Dockerfile" .
+   docker build -t "orbslam-build:dev" .
 ```
 
-To open a container of the image on MAC:
+To open a container of the image on Mac OS:
 ```
       docker run -it -e DISPLAY=docker.for.mac.localhost:0 -v /tmp/.X11-unix:/tmp/.X11-unix --rm orbslam-build:Dockerfile /bin/bash
 
