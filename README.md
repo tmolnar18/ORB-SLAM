@@ -1,3 +1,8 @@
+To build the dockerfile and create an image:
+```
+   docker build -t "orbslam-build:Dockerfile" .
+```
+
 Add line below to ~/.bashrc file, then source the file. 
 ```
    export ROS_PACKAGE_PATH=${ROS_PACKAGE_PATH}:/opt/ORB_SLAM/Examples/ROS
