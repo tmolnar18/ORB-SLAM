@@ -83,7 +83,7 @@ RUN cd /opt \
     && git clone https://github.com/tmolnar18/ORB-SLAM.git ORB_SLAM \
     && cd ORB_SLAM && chmod +x build.sh && chmod +x build_ros.sh
 
-#RUN echo "export ROS_PACKAGE_PATH=${ROS_PACKAGE_PATH}:/opt/ORB_SLAM/Examples/ROS" >> ~/.bashrc
+RUN echo "export ROS_PACKAGE_PATH=${ROS_PACKAGE_PATH}:/opt/ORB_SLAM/Examples/ROS" >> ~/.bashrc
 #RUN echo "source ~/.bashrc" >> ~/.bashrc
 RUN apt-get update
 
