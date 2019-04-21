@@ -11,7 +11,7 @@ Navigate to /opt/ORB_SLAM and execute build.sh and ros_build.sh:
     ./build_ros.sh
 ```
 
-Point cloud viewer window is disabled by default. To generate point cloud, run from /opt/ORB_SLAM folder:
+Point cloud viewer window is disabled by default. To generate point cloud, run from /opt/ORB_SLAM the rosrun command and from /opt/ORB_SLAM/vizdoom the python command:
 ```
      roscore
 
