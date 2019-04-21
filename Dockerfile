@@ -1,4 +1,3 @@
-# Use Ubuntu 16.04 Base Image
 FROM ubuntu:16.04
 LABEL maintainer "e-Lab Purdue <tmolnar@purdue.edu>"
 
