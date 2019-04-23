@@ -152,6 +152,13 @@ RUN cd \
 # Python2
 RUN apt-get install -y python-dev python python-pip
 RUN pip install pip --upgrade
+RUN pip install numpy
+RUN apt-get update
+
+# Python3
+RUN apt-get install -y python3-dev python3 python3-pip
+RUN pip3 install pip3 --upgrade
+RUN pip3 install numpy
 RUN apt-get update
 
 # Install Vizdoom
