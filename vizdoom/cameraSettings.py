@@ -38,10 +38,12 @@ def writeYamlFile(imageWidth, imageHeight, M, CM, fps, far_threshold):
     # Set Camera Parameters
     # fx, fy, cx, and cy are default ROS values, see link below:
     # https://vision.in.tum.de/data/datasets/rgbd-dataset/file_formats
-    fx = 525.0 #M[0][0]
-    fy = 525.0 #M[1][1] 
-    cx = 319.5 #M[0][2]
-    cy = 239.5 #M[1][2]
+    # Focal lengths set to screen size
+    fx = 320.0 #M[0][0]
+    fy = 240.0 #M[1][1] 
+    # Half the screen width/height
+    cx = 160.0 #M[0][2]
+    cy = 120.0 #M[1][2]
     k1 = 0
     k2 = 0
     p1 = 0
@@ -49,7 +51,7 @@ def writeYamlFile(imageWidth, imageHeight, M, CM, fps, far_threshold):
     k3 = 0
     rgb = 1
     IR = 40.0
-    depthmap_factor = 1.0
+    depthmap_factor = 5000.0
 
     cam_file.write("%YAML:1.0\n\n")
     # Write Camera Parameters to .yaml file
@@ -73,11 +75,11 @@ def writeYamlFile(imageWidth, imageHeight, M, CM, fps, far_threshold):
     cam_file.write("# Depthmap values factor.\nDepthMapFactor: %.1f\n\n"% depthmap_factor)
     
     # Set ORB Parameters
-    features_per_image = 3000
+    features_per_image = 9000
     scale_factor = 1.2
     scale_levels = 8
-    iniThFAST = 20
-    minThFAST = 2
+    iniThFAST = 10
+    minThFAST = 1
 
     # Write ORB Parameters to .yaml file
     cam_file.write("#-------------------------------------------\n# ORB Parameters\n#-------------------------------------------\n\n")
@@ -130,7 +132,7 @@ def main(imageWidth, imageHeight, xPos, yPos, zPos, fps):
     cameraMatrix = np.zeros((3,3))
     angleOfView = 60
     near = 1
-    far = 200
+    far = 1800
     projMatrix = setProjectionMatrix(angleOfView, near, far, projMatrix, xPos, yPos, zPos)
     cameraMatrix = setCameraMatrix(imageWidth, imageHeight, cameraMatrix)
     writeYamlFile(imageWidth, imageHeight, projMatrix, cameraMatrix, fps, far)
