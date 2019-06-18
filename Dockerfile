@@ -164,3 +164,5 @@ RUN apt-get update
 RUN cd \
     && git clone https://github.com/mwydmuch/ViZDoom vizdoom
 RUN pip install vizdoom
+RUN pip install tdqm
+RUN pip install torchvision
