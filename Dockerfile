@@ -68,7 +68,7 @@ RUN cd \
 
 # install ros packages
 ENV ROS_DISTRO kinetic
-RUN apt-get update && apt-get install -y \
+RUN apt-get update && apt-get install -y --allow-unauthenticated \
     ros-kinetic-ros-core=1.3.2-0* \
     ros-kinetic-tf \
     ros-kinetic-image-transport \
