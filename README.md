@@ -101,3 +101,8 @@ Point cloud viewer window is disabled by default. To generate point cloud, run f
 ```
 
 See the corresponding Docker repo here (https://cloud.docker.com/repository/docker/tmolnar18/vizdoom-orbslam) for additional information on deploying and using the image.
+
+If experiencing issues with pytorch and CUDA, reinstall pytorch for python 2.7 from source for CUDA 10:
+
+pip install https://download.pytorch.org/whl/cu100/torch-1.1.0-cp27-cp27mu-linux_x86_64.whl
+pip install https://download.pytorch.org/whl/cu100/torchvision-0.3.0-cp27-cp27mu-linux_x86_64.whl
